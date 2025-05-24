@@ -52,7 +52,7 @@ class TemplateResolver:
         return versions_required_params
 
     def _get_versions(self, dir: str) -> list[str]:
-        versions = os.listdir(os.path.join(self.path, dir))
+        versions = os.listdir(dir)
         return [version for version in versions if TemplateResolver._is_valid_version(os.path.join(self.path, dir), version)]
 
     def _get_template_directories(self) -> list[str]:
