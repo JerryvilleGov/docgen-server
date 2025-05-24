@@ -55,8 +55,7 @@ class TemplateResolver:
 
     def _get_versions(self, dir: str) -> list[str]:
         versions = os.listdir(dir)
-        print([version for version in versions if TemplateResolver._is_valid_version(dir, version)])
-        return [version for version in versions if TemplateResolver._is_valid_version(dir, version)]
+        return [version for version in versions if TemplateResolver._is_valid_version(os.path.join(self.path, dir), version)]
 
     def _get_template_directories(self) -> list[str]:
         return [dir for dir in os.listdir(self.path) if TemplateResolver._is_valid_dir(os.path.join(self.path, dir), dir)]
